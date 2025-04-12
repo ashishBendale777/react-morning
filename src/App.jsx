@@ -5,14 +5,34 @@ import './App.css'
 import Home from './componants/Home'
 import About from './componants/About'
 import MyFooter from './componants/MyFooter'
+import MyAppBar from './componants/MyAppBar'
+import MyRoutes from './componants/MyRoutes'
+import { Box } from '@mui/material'
 
 function App() {
 
   return (
     <>
-      <Home />
-      {/* <About /> */}
-      <MyFooter />
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column"
+      }}>
+        <Box sx={{
+          flex: 1
+        }}>
+          <MyAppBar />
+        </Box>
+        <Box sx={{
+          flexGrow: 1
+        }}>
+          <MyRoutes />
+        </Box>
+        <Box sx={{
+          flex: 1
+        }}>
+          <MyFooter />
+        </Box>
+      </Box>
     </>
   )
 }
