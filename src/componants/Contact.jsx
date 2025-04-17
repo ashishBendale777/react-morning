@@ -1,10 +1,13 @@
 import { CheckBox } from '@mui/icons-material'
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material'
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import React, { useState } from 'react'
+
 
 const Contact = () => {
 
-
+  const [selectedDate, setselectedDate] = useState(null)
   let submitFromData = (e) => {
     e.preventDefault()
 
@@ -53,8 +56,36 @@ const Contact = () => {
             <FormControlLabel control={<Checkbox />} label="Dance" />
             <FormControlLabel control={<Checkbox />} label="Reading" />
           </FormGroup>
+
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label="Select Date"
+              format="YYYY-MM-DD"
+              value={selectedDate}
+              onChange={(newDate) => setselectedDate(newDate)}
+            // renderInput={(params) => <TextField {...params} />}
+            />
+
+          </LocalizationProvider>
+
+          <FormControl>
+            <InputLabel>Select Course</InputLabel>
+            <Select
+              label="Select Course"
+              name="courses"
+            > 
+
+              <MenuItem value="MCA">MCA</MenuItem>
+              <MenuItem value="MSc">MSc</MenuItem>
+              <MenuItem value="BSc">BSc</MenuItem>
+              <MenuItem value="BCA">BCA</MenuItem>
+            </Select>
+          </FormControl>
           <Button type='submit' variant='contained' color='primary'>Submit</Button>
+          {/* <Typography variant='h3'>{selectedDate+""}</Typography> */}
+
         </Box>
+
       </Box>
     </>
   )
