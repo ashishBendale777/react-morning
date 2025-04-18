@@ -8,12 +8,14 @@ import MyFooter from './componants/MyFooter'
 import MyAppBar from './componants/MyAppBar'
 import MyRoutes from './componants/MyRoutes'
 import { Box } from '@mui/material'
+import DrawerAppBar from './componants/admin/DrawerAppBar'
+import AdminRoutes from './componants/admin/AdminRoutes'
 
 function App() {
 
   return (
     <>
-      <Box sx={{
+      {/* <Box sx={{
         display: "flex",
         flexDirection: "column"
       }}>
@@ -32,7 +34,9 @@ function App() {
         }}>
           <MyFooter />
         </Box>
-      </Box>
+      </Box> */}
+      {/* <DrawerAppBar/> */}
+      <AdminRoutes />
     </>
   )
 }
