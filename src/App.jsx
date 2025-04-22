@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      {/* <Box sx={{
+      <Box sx={{
         display: "flex",
         flexDirection: "column"
       }}>
@@ -34,9 +34,9 @@ function App() {
         }}>
           <MyFooter />
         </Box>
-      </Box> */}
+      </Box>
       {/* <DrawerAppBar/> */}
-      <AdminRoutes />
+      {/* <AdminRoutes /> */}
     </>
   )
 }

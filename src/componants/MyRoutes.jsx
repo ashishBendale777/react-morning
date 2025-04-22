@@ -4,6 +4,7 @@ import Home from './Home'
 import Profile from './Profile'
 import About from './About'
 import Contact from './Contact'
+import Products from './Products'
 
 const MyRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const MyRoutes = () => {
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/contact' element={<Contact/>}/>
+            <Route path='/products' element={<Products/>}/>
         </Routes>
     </>
   )
