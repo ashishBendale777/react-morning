@@ -1,17 +1,20 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from '@mui/material'
-import axios from 'axios'
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Chip, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Stack, Typography } from '@mui/material'
+import axios, { all } from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
 
-
 const Products = () => {
     const [allProducts, setallProducts] = useState([])
+    const [filterProducts, setfilterProducts] = useState([])
+
     let navigator = useNavigate()
     const [isOpenDialog, setisOpenDialog] = useState(false)
 
     const [selectedProduct, setselectedProduct] = useState(null)
+
+    const [selectedCategory, setselectedCategory] = useState("All")
 
     useEffect(() => {
         let fetchProducts = async () => {
@@ -23,6 +26,18 @@ const Products = () => {
         //function call
         fetchProducts()
     }, [])
+
+    //for filteration
+    useEffect(() => {
+        let filterProd = allProducts.filter((prod) => prod.category == selectedCategory)
+        setfilterProducts(filterProd)
+
+        if (selectedCategory == "All") {
+            setfilterProducts(allProducts)
+        }
+    }, [selectedCategory, allProducts])
+
+
 
     let openDialog = (product) => {
         setselectedProduct(product)
@@ -39,9 +54,18 @@ const Products = () => {
             <Box sx={{
                 mt: 10
             }}>
+                <Stack sx={{
+                    justifyContent: "center"
+                }} direction="row" spacing={2}>
+                    <Chip label="All" onClick={() => setselectedCategory("All")} variant='filled' color='info' />
+                    <Chip label="Beauty" onClick={() => setselectedCategory("beauty")} variant='filled' color='info' />
+                    <Chip label="Fragrance" onClick={() => setselectedCategory("fragrances")} variant='filled' color='info' />
+                    <Chip label="Furniture" onClick={() => setselectedCategory("furniture")} variant='filled' color='info' />
+                    <Chip label="Grossary" onClick={() => setselectedCategory("groceries")} variant='filled' color='info' />
+                </Stack>
                 <Grid container>
                     {
-                        allProducts.map((prod) => {
+                        filterProducts.map((prod) => {
                             return (
                                 <Grid item
                                     // onClick={() => navigator("/productdetails", { state: prod })}
