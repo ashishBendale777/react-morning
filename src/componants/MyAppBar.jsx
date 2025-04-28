@@ -65,6 +65,17 @@ const MyAppBar = () => {
                         </ListItem>
 
                         <ListItem onClick={() => {
+                            navigator("/cart")
+                        }}>
+                            <ListItemIcon>
+
+                            </ListItemIcon>
+                            <ListItemText>
+                                Cart
+                            </ListItemText>
+                        </ListItem>
+
+                        <ListItem onClick={() => {
                             navigator("/profile")
                         }}>
                             <ListItemIcon>

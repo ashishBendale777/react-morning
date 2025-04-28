@@ -1,0 +1,8 @@
+React redux
+ redux is global state management library_add
+@reduxjs/toolkit    react-redux
+
+ Slice file==>reducers====>actions ( User define functions)
+ e.g. CartSlice===>reducers===> addItem, removeItem, increQty, decreQty, calculateTotal
+
+ MainStore file

@@ -2,6 +2,8 @@ import { Box, Button, Card, CardActions, CardContent, CardMedia, Chip, Dialog, D
 import axios, { all } from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { addItem } from '../reduxwork/CartSlice'
+import { useDispatch } from 'react-redux'
 
 
 
@@ -15,6 +17,8 @@ const Products = () => {
     const [selectedProduct, setselectedProduct] = useState(null)
 
     const [selectedCategory, setselectedCategory] = useState("All")
+
+    let dispatcher = useDispatch()
 
     useEffect(() => {
         let fetchProducts = async () => {
@@ -85,7 +89,10 @@ const Products = () => {
                                             <Typography variant='h4'>{prod.category}</Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button variant='outlined'>Add To Cart</Button>
+                                            <Button onClick={() => {
+                                                dispatcher(addItem(prod))
+                                                alert("Added")
+                                            }} variant='outlined'>Add To Cart</Button>
                                         </CardActions>
                                     </Card>
                                 </Grid>
