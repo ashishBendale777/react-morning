@@ -1,6 +1,8 @@
 import { CardTravel } from "@mui/icons-material";
 import { createSlice } from "@reduxjs/toolkit";
 
+
+
 let initialState = {
     cartItems: [],
     cartTotal: 0,
@@ -24,8 +26,17 @@ let cartSLice = createSlice({
             let prodItem = state.cartItems.find((itm) => itm.id == actions.payload.pId)
             prodItem.Qty -= 1
         },
-        calcilateTotal: () => { },
-        removeItem: () => { }
+        calcilateTotal: (state) => {
+            let total = 0
+            for (const item of state.cartItems) {
+                total += item.price * item.Qty
+            }
+            state.cartTotal = total
+        },
+        removeItem: (state, actions) => {
+            state.cartItems = state.cartItems.filter((item) => item.id !== actions.payload.pId)
+            state.itemCount = state.cartItems.length
+        }
     }
 })
 

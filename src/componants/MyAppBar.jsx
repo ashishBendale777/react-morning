@@ -1,11 +1,15 @@
 import { Flare } from '@mui/icons-material'
-import { AppBar, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
+import { AppBar, Badge, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 const MyAppBar = () => {
     let navigator = useNavigate()
+
+    const { itemCount } = useSelector((state) => state.cart)
     return (
         <>
             <AppBar>
@@ -70,9 +74,11 @@ const MyAppBar = () => {
                             <ListItemIcon>
 
                             </ListItemIcon>
-                            <ListItemText>
-                                Cart
-                            </ListItemText>
+                            <Badge badgeContent={itemCount} color='error'>
+                                <ListItemText>
+                                    Cart
+                                </ListItemText>
+                            </Badge>
                         </ListItem>
 
                         <ListItem onClick={() => {

@@ -91,7 +91,6 @@ const Products = () => {
                                         <CardActions>
                                             <Button onClick={() => {
                                                 dispatcher(addItem(prod))
-                                                alert("Added")
                                             }} variant='outlined'>Add To Cart</Button>
                                         </CardActions>
                                     </Card>
