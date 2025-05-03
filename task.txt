@@ -1,0 +1,37 @@
+Student Management:
+  - Student List
+  - Admission
+  - Promotions
+  - Attendance
+  - Student Profile
+  - Transfer Certificate
+
+Academic Management:
+  - Class & Sections
+  - Subjects
+  - Timetable
+  - Syllabus
+  - Homework
+  - Lesson Plan
+
+Examination:
+  - Exam Schedule
+  - Marks Entry
+  - Gradebook
+  - Result Generation
+  - Report Cards
+
+Fee Management:
+  - Fee Structure
+  - Collect Fees
+  - Due Fees
+  - Fee Receipts
+  - Fee Reports
+
+Staff Management:
+  - Staff Directory
+  - Attendance
+  - Assign Roles
+  - Leave Management
+  - Payroll
+

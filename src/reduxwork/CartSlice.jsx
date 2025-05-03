@@ -25,6 +25,10 @@ let cartSLice = createSlice({
         decreQty: (state, actions) => {
             let prodItem = state.cartItems.find((itm) => itm.id == actions.payload.pId)
             prodItem.Qty -= 1
+            if (prodItem.Qty == 0) {
+                state.cartItems = state.cartItems.filter((item) => item.id !== actions.payload.pId)
+                state.itemCount = state.cartItems.length
+            }
         },
         calcilateTotal: (state) => {
             let total = 0
